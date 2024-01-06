@@ -1,0 +1,114 @@
+{
+    "version": 8,
+    "name": "indoor",
+    "metadata": {
+        "mapbox:autocomposite": true,
+        "mapbox:type": "template",
+        "mapbox:trackposition": false
+    },
+    "center": [
+        112.51157376259386,
+        0.0013230026914641257
+    ],
+    "zoom": 10.943768303675228,
+    "bearing": -68.79999999999973,
+    "pitch": 0,
+    "light": {
+        "intensity": 0.5
+    },
+    "sources": {
+        "composite": {
+            "url": "mapbox://maper.aplzz4gd,maper.bqi2f2mk,maper.9cfbler5",
+            "type": "vector"
+        }
+    },
+    "sprite": "mapbox://sprites/maper/ciwvpz28c002z2qpqxdg2m5cy",
+    "glyphs": "mapbox://fonts/maper/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "hsl(0, 0%, 82%)"
+            }
+        },
+        {
+            "layout": {},
+            "filter": [
+                "==",
+                "$type",
+                "Polygon"
+            ],
+            "type": "fill",
+            "source": "composite",
+            "id": "ground",
+            "paint": {
+                "fill-color": "hsl(0, 84%, 87%)"
+            },
+            "source-layer": "wgs_bgq_wall_polygon-cnyajm"
+        },
+        {
+            "layout": {},
+            "type": "fill",
+            "source": "composite",
+            "id": "wall-base",
+            "paint": {
+                "fill-color": "hsl(0, 74%, 49%)",
+                "fill-outline-color": "hsl(0, 74%, 49%)"
+            },
+            "source-layer": "true"
+        },
+        {
+            "layout": {},
+            "type": "line",
+            "source": "composite",
+            "id": "wall-line",
+            "paint": {
+                "line-width": 1
+            },
+            "source-layer": "true"
+        },
+        {
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "fill-extrusion",
+            "source": "composite",
+            "id": "wall",
+            "paint": {
+                "fill-extrusion-height": 800,
+                "fill-extrusion-color": "hsl(0, 74%, 49%)"
+            },
+            "source-layer": "true"
+        },
+        {
+            "layout": {
+                "visibility": "visible",
+                "text-field": "{Text}",
+                "text-size": 10,
+                "text-max-width": 6,
+                "text-allow-overlap": true
+            },
+            "filter": [
+                "==",
+                "$type",
+                "Point"
+            ],
+            "type": "symbol",
+            "source": "composite",
+            "id": "label",
+            "paint": {
+                "text-halo-color": "hsl(0, 0%, 99%)",
+                "text-halo-width": 1,
+                "text-halo-blur": 1
+            },
+            "source-layer": "wgs_bgq_anno-7p9vep"
+        }
+    ],
+    "created": "2016-12-19T06:47:46.337Z",
+    "id": "ciwvpz28c002z2qpqxdg2m5cy",
+    "modified": "2016-12-28T10:26:55.049Z",
+    "owner": "maper",
+    "visibility": "private",
+    "draft": false
+}

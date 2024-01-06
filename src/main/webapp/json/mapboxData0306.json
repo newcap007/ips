@@ -1,0 +1,229 @@
+{
+    "version": 8,
+    "name": "indoor2",
+    "metadata": {
+        "mapbox:autocomposite": true,
+        "mapbox:type": "default",
+        "mapbox:trackposition": false
+    },
+    "center": [
+        116.42029784516643,
+        39.94763452200064
+    ],
+    "zoom": 20.5,
+    "bearing": -70,
+    "pitch": 40,
+    "light": {
+        "intensity": 0.5,
+        "color": "hsl(0, 0%, 100%)"
+    },
+    "sources": {
+        "composite": {
+            "url": "mapbox://maper.0fj36ofd,maper.c4z1z3us,maper.8il5h22b,maper.120s2s6y,maper.0kfwec9v,maper.d1mjfxtn",
+            "type": "vector"
+        }
+    },
+    "sprite": "mapbox://sprites/maper/cizfl4jyx007m2sji1ndyc4nl",
+    "glyphs": "mapbox://fonts/maper/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "hsl(0, 0%, 82%)"
+            }
+        },
+        {
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "fill",
+            "source": "composite",
+            "id": "ground",
+            "paint": {
+                "fill-color": "hsl(0, 84%, 87%)",
+                "fill-outline-color": "hsl(0, 84%, 87%)"
+            },
+            "source-layer": "ground-aq7jel"
+        },
+        {
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "composite",
+            "id": "gates",
+            "paint": {
+                "line-color": "hsl(0, 74%, 49%)"
+            },
+            "source-layer": "gates-66dmkf"
+        },
+        {
+            "layout": {},
+            "type": "fill",
+            "source": "composite",
+            "id": "facilities-base",
+            "paint": {
+                "fill-color": "hsl(238, 33%, 51%)",
+                "fill-outline-color": "hsl(229, 100%, 50%)"
+            },
+            "source-layer": "facilities-9074ok"
+        },
+        {
+            "layout": {},
+            "type": "line",
+            "source": "composite",
+            "id": "facilities-line",
+            "paint": {
+                "line-color": "hsl(0, 0%, 0%)"
+            },
+            "source-layer": "facilities-9074ok"
+        },
+        {
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "fill-extrusion",
+            "source": "composite",
+            "id": "facilities",
+            "paint": {
+                "fill-extrusion-height": 0.4,
+                "fill-extrusion-color": "hsl(238, 33%, 51%)"
+            },
+            "source-layer": "facilities-9074ok"
+        },
+        {
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "类型",
+                "墙",
+                "窗户"
+            ],
+            "type": "fill",
+            "source": "composite",
+            "id": "wall-base",
+            "paint": {
+                "fill-outline-color": "hsla(0, 74%, 49%, 0.99)",
+                "fill-color": "hsla(0, 74%, 49%, 0.99)"
+            },
+            "source-layer": "ground-aq7jel"
+        },
+        {
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "类型",
+                "墙",
+                "窗户"
+            ],
+            "type": "line",
+            "source": "composite",
+            "id": "wall-line",
+            "paint": {
+                "line-color": "hsl(0, 0%, 0%)"
+            },
+            "source-layer": "ground-aq7jel"
+        },
+        {
+            "layout": {
+                "visibility": "visible"
+            },
+            "filter": [
+                "in",
+                "类型",
+                "墙",
+                "窗户"
+            ],
+            "type": "fill-extrusion",
+            "source": "composite",
+            "id": "wall",
+            "paint": {
+                "fill-extrusion-color": "hsl(0, 74%, 49%)",
+                "fill-extrusion-height": 1
+            },
+            "source-layer": "ground-aq7jel"
+        },
+        {
+            "layout": {
+                "visibility": "none"
+            },
+            "filter": [
+                "==",
+                "类型",
+                "窗户"
+            ],
+            "type": "fill-extrusion",
+            "source": "composite",
+            "id": "window",
+            "paint": {
+                "fill-extrusion-color": "hsl(165, 100%, 51%)",
+                "fill-extrusion-height": 1
+            },
+            "source-layer": "ground-aq7jel"
+        },
+        {
+            "layout": {
+                "visibility": "none"
+            },
+            "type": "line",
+            "source": "composite",
+            "id": "routes",
+            "paint": {
+                "line-color": "hsl(229, 100%, 50%)",
+                "line-width": 3,
+                "line-gap-width": 0
+            },
+            "source-layer": "routes-c1rni8"
+        },
+        {
+            "layout": {
+                "visibility": "none"
+            },
+            "type": "circle",
+            "source": "composite",
+            "id": "points",
+            "paint": {
+                "circle-color": "hsl(194, 100%, 36%)",
+                "circle-radius": 5,
+                "circle-blur": 0
+            },
+            "source-layer": "points-7dj8og"
+        },
+        {
+            "layout": {
+                "visibility": "visible",
+                "text-field": "{名称}",
+                "text-size": 10,
+                "text-ignore-placement": true,
+                "text-max-width": 6
+            },
+            "filter": [
+                "in",
+                "$type",
+                "LineString",
+                "Point",
+                "Polygon"
+            ],
+            "type": "symbol",
+            "source": "composite",
+            "id": "poi",
+            "paint": {
+                "text-halo-color": "hsl(0, 0%, 100%)",
+                "text-halo-width": 1,
+                "text-halo-blur": 1
+            },
+            "source-layer": "locations-dgdw0l"
+        }
+    ],
+    "created": "2017-02-21T13:46:53.119Z",
+    "id": "cizfl4jyx007m2sji1ndyc4nl",
+    "modified": "2017-02-27T02:30:50.867Z",
+    "owner": "maper",
+    "visibility": "private",
+    "draft": false
+}

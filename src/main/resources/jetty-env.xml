@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure id="Server" class="org.mortbay.jetty.plugin.JettyServer">
+	<New id="datasource" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>jdbc/datasource</Arg>
+		<Arg>
+			<New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
+				<Set name="URL">jdbc:mysql://47.94.129.191:3306/ips</Set>
+				<Set name="User">admin</Set>
+				<Set name="Password">191ipsadmin</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>
